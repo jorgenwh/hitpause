@@ -1,3 +1,4 @@
+
 function createPauseOverlay() {
     const overlay = document.createElement("div");
     overlay.id = "video-pause-overlay";
@@ -34,9 +35,16 @@ function handleVideoEvents(video) {
         removePauseOverlay();
     });
 
-    video.addEventListener("pause", () => {
+    video.addEventListener("pause", async () => {
         console.log("Video paused:", video);
-        createPauseOverlay();
+        setTimeout(() => {
+            console.log("Taking screenshot...");
+            chrome.runtime.sendMessage({ action: "captureScreenshot" });
+        }, 1000);
+        // setTimeout(() => {
+        //     console.log("Creating pause overlay...");
+        //     createPauseOverlay();
+        // }, 2500);
     });
 }
 

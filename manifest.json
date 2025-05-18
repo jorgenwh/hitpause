@@ -7,6 +7,17 @@
         "default_popup": "pause.html",
         "default_icon": "assets/pauseicon.png"
     },
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "*://*.netflix.com/watch/*",
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "content_scripts": [
         {
             "js": ["scripts/content.js"],
