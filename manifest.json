@@ -1,0 +1,16 @@
+{
+    "name": "HitPause",
+    "description": "Pause extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "pause.html",
+        "default_icon": "assets/pauseicon.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["scripts/content.js"],
+            "matches": ["*://*.netflix.com/watch/*"]
+        }
+    ]
+}
